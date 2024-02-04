@@ -3,13 +3,19 @@ on: [push]
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Build Image
     steps:
-      - name: Hello world action step
-        id: hello
-        uses: mmullin128/server-config@v1
+      - name: Build Step
+        id: build
+        uses: mmullin128/server-config@v2
         with:
-          who-to-greet: 'Mona the Octocat'
+          docker-repository: 'docker-repo'
+          username: 'username'
+          password: 'password'
+          gh-owner: 'gh-owner'
+          gh-repository: 'gh-repository'
+          gh-access-token: 'gh-access-token'
+          runner-tag: 'runner-tag'
       # Use the output from the `hello` step
       - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+        run: echo "The time was ${{ steps.hello.outputs.vars }}"
