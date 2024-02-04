@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Build Step
         id: build
-        uses: mmullin128/server-config@v3
+        uses: mmullin128/server-config@v4
         with:
           docker-repository: 'docker-repo'
           username: 'username'
