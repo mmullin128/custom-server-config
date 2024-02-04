@@ -9,13 +9,10 @@ jobs:
         id: build
         uses: mmullin128/server-config@v1
         with:
-          docker-repository: 'docker-repo'
-          username: 'username'
-          password: 'password'
-          gh-owner: 'gh-owner'
-          gh-repository: 'gh-repository'
-          gh-access-token: 'gh-access-token'
-          runner-tag: 'runner-tag'
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.vars }}"
+          docker-repository: 'mmullin12/pong:latest'
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          gh-repository: $GITHUB_REPOSITORY
+          gh-access-token: ${{ secrets.ACCESS_TOKEN }}
+          runner-tag: 'dev'
+      
