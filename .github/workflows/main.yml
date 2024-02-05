@@ -9,7 +9,7 @@ jobs:
         id: build
         uses: mmullin128/server-config@v1
         with:
-          docker-repository: 'mmullin12/pong:latest'
+          docker-repository: 'mmullin12/server-config:v1'
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           gh-repository: $GITHUB_REPOSITORY
